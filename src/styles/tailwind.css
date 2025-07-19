@@ -1,0 +1,377 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Enhanced Core Colors */
+    --color-background: #ffffff;
+    --color-foreground: #0f172a;
+    --color-border: #e2e8f0;
+    --color-input: #ffffff;
+    --color-ring: #1e40af;
+
+    /* Card Colors */
+    --color-card: #ffffff;
+    --color-card-foreground: #0f172a;
+
+    /* Popover Colors */
+    --color-popover: #ffffff;
+    --color-popover-foreground: #0f172a;
+
+    /* Muted Colors */
+    --color-muted: #f8fafc;
+    --color-muted-foreground: #64748b;
+
+    /* Primary Colors - Enhanced */
+    --color-primary: #1e40af;
+    --color-primary-foreground: #ffffff;
+    --color-primary-light: #3b82f6;
+    --color-primary-dark: #1e3a8a;
+
+    /* Secondary Colors */
+    --color-secondary: #f1f5f9;
+    --color-secondary-foreground: #0f172a;
+
+    /* Destructive Colors */
+    --color-destructive: #dc2626;
+    --color-destructive-foreground: #ffffff;
+
+    /* Accent Colors - Enhanced */
+    --color-accent: #f59e0b;
+    --color-accent-foreground: #0f172a;
+    --color-accent-light: #fbbf24;
+    --color-accent-dark: #d97706;
+
+    /* Success Colors */
+    --color-success: #16a34a;
+    --color-success-foreground: #ffffff;
+
+    /* Warning Colors */
+    --color-warning: #f59e0b;
+    --color-warning-foreground: #0f172a;
+
+    /* Error Colors */
+    --color-error: #dc2626;
+    --color-error-foreground: #ffffff;
+
+    /* Theme Specific Colors */
+    --color-orange: #ea580c;
+    --color-orange-foreground: #ffffff;
+    --color-gold: #fbbf24;
+    --color-gold-foreground: #0f172a;
+    --color-wood: #92400e;
+    --color-wood-foreground: #ffffff;
+
+    /* Enhanced Radius */
+    --radius: 0.75rem;
+    --radius-sm: 0.5rem;
+    --radius-lg: 1rem;
+    --radius-xl: 1.5rem;
+
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Inter", "Noto Sans Devanagari", sans-serif;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    font-variation-settings: normal;
+  }
+
+  /* Enhanced Typography */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Playfair Display", "Inter", serif;
+    font-weight: 600;
+    letter-spacing: -0.025em;
+  }
+
+  /* Smooth Scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Selection */
+  ::selection {
+    background-color: var(--color-primary);
+    color: var(--color-primary-foreground);
+  }
+}
+
+@layer components {
+  /* Enhanced Furniture Shadows */
+  .furniture-shadow-card {
+    box-shadow: var(--shadow);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+  }
+
+  .furniture-shadow-card:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-2px);
+  }
+
+  .furniture-shadow-cta {
+    box-shadow: var(--shadow-md);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+  }
+
+  .furniture-shadow-cta:hover {
+    box-shadow: var(--shadow-xl);
+    transform: translateY(-1px);
+  }
+
+  .furniture-shadow-hero {
+    box-shadow: var(--shadow-2xl);
+  }
+
+  /* Enhanced Transitions */
+  .furniture-transition {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .furniture-transition-fast {
+    transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .furniture-transition-slow {
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Enhanced Gradients */
+  .furniture-gradient-primary {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+  }
+
+  .furniture-gradient-accent {
+    background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-light) 100%);
+  }
+
+  .furniture-gradient-hero {
+    background: linear-gradient(135deg, rgba(30, 64, 175, 0.9) 0%, rgba(59, 130, 246, 0.8) 100%);
+  }
+
+  .furniture-gradient-overlay {
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.3) 100%);
+  }
+
+  /* Enhanced Buttons */
+  .btn-primary {
+    @apply bg-primary text-primary-foreground font-semibold px-6 py-3 rounded-lg furniture-transition;
+    @apply hover:bg-primary-dark hover:shadow-lg hover:transform hover:scale-105;
+    @apply focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2;
+  }
+
+  .btn-secondary {
+    @apply bg-secondary text-secondary-foreground font-semibold px-6 py-3 rounded-lg furniture-transition;
+    @apply hover:bg-muted hover:shadow-md;
+    @apply focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2;
+  }
+
+  .btn-outline {
+    @apply border-2 border-primary text-primary font-semibold px-6 py-3 rounded-lg furniture-transition;
+    @apply hover:bg-primary hover:text-primary-foreground hover:shadow-md;
+    @apply focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2;
+  }
+
+  /* Enhanced Cards */
+  .furniture-card {
+    @apply bg-card rounded-xl border border-border overflow-hidden furniture-shadow-card;
+    @apply hover:shadow-lg hover:transform hover:scale-[1.02] furniture-transition;
+  }
+
+  .furniture-card-hero {
+    @apply bg-card rounded-2xl border border-border overflow-hidden furniture-shadow-hero;
+    @apply hover:shadow-2xl furniture-transition;
+  }
+
+  /* Enhanced Navigation */
+  .nav-item-base {
+    @apply flex items-center space-x-2 px-4 py-3 rounded-lg font-medium furniture-transition;
+    @apply hover:text-primary hover:bg-muted hover:bg-opacity-50;
+    @apply focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50;
+  }
+
+  .nav-item-hover {
+    @apply hover:text-primary hover:bg-muted hover:bg-opacity-50 hover:transform hover:scale-105;
+  }
+
+  .nav-item-active {
+    @apply bg-primary text-primary-foreground shadow-md;
+  }
+
+  .nav-dropdown-trigger {
+    @apply nav-item-base nav-item-hover;
+    @apply whitespace-nowrap;
+  }
+
+  .nav-dropdown-item {
+    @apply flex items-center space-x-3 p-4 rounded-lg furniture-transition;
+    @apply hover:bg-muted hover:transform hover:scale-105 group;
+  }
+
+  .nav-section-item {
+    @apply nav-item-base nav-item-hover;
+    @apply whitespace-nowrap;
+  }
+
+  .nav-section-item-mobile {
+    @apply flex flex-col items-center space-y-1 px-4 py-3 rounded-lg furniture-transition whitespace-nowrap;
+    @apply hover:text-primary hover:bg-muted hover:bg-opacity-50 hover:transform hover:scale-105;
+    @apply focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50;
+  }
+
+  /* Enhanced Product Cards */
+  .product-card {
+    @apply bg-card rounded-xl border border-border overflow-hidden furniture-shadow-card;
+    @apply hover:shadow-xl hover:transform hover:scale-[1.02] furniture-transition;
+    @apply cursor-pointer;
+  }
+
+  .product-card-image {
+    @apply relative overflow-hidden;
+  }
+
+  .product-card-image img {
+    @apply w-full h-64 object-cover furniture-transition;
+    @apply group-hover:scale-110 group-hover:rotate-1;
+  }
+
+  /* Enhanced Badges */
+  .badge-primary {
+    @apply bg-primary text-primary-foreground px-3 py-1 rounded-full text-sm font-semibold;
+    @apply shadow-sm;
+  }
+
+  .badge-accent {
+    @apply bg-accent text-accent-foreground px-3 py-1 rounded-full text-sm font-semibold;
+    @apply shadow-sm;
+  }
+
+  .badge-sale {
+    @apply bg-red-500 text-white px-3 py-1 rounded-full text-sm font-bold;
+    @apply shadow-sm;
+  }
+
+  /* Enhanced Section Headers */
+  .section-header {
+    @apply text-center mb-16;
+  }
+
+  .section-title {
+    @apply text-4xl md:text-5xl font-bold text-foreground mb-6;
+    @apply leading-tight;
+  }
+
+  .section-subtitle {
+    @apply text-xl text-muted-foreground max-w-3xl mx-auto;
+    @apply leading-relaxed;
+  }
+
+  /* Enhanced Grid Layouts */
+  .furniture-grid {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8;
+  }
+
+  .furniture-grid-hero {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8;
+  }
+
+  /* Enhanced Spacing */
+  .section-padding {
+    @apply py-20 md:py-32;
+  }
+
+  .container-padding {
+    @apply px-6 md:px-8 lg:px-12;
+  }
+
+  /* Enhanced Animations */
+  .fade-in-up {
+    animation: fadeInUp 0.6s ease-out;
+  }
+
+  .slide-in-left {
+    animation: slideInLeft 0.6s ease-out;
+  }
+
+  .slide-in-right {
+    animation: slideInRight 0.6s ease-out;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slideInLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes slideInRight {
+    from {
+      opacity: 0;
+      transform: translateX(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  /* Enhanced Responsive Design */
+  .responsive-text {
+    @apply text-lg md:text-xl lg:text-2xl;
+  }
+
+  .responsive-title {
+    @apply text-2xl md:text-3xl lg:text-4xl xl:text-5xl;
+  }
+
+  /* Enhanced Focus States */
+  .focus-ring {
+    @apply focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2;
+  }
+
+  /* Enhanced Loading States */
+  .skeleton {
+    @apply animate-pulse bg-muted rounded;
+  }
+
+  .skeleton-text {
+    @apply skeleton h-4 rounded;
+  }
+
+  .skeleton-title {
+    @apply skeleton h-8 rounded;
+  }
+
+  .skeleton-image {
+    @apply skeleton h-64 rounded-lg;
+  }
+}
